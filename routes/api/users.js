@@ -42,11 +42,8 @@ router.post("/", (req, res) => {
               let { id, balance, registrationDate, stocks,
                 watchlist, hasConfirmedEmail, role, username, email } = user;
               res.json({
-                token,
-
-                id, balance, registrationDate, stocks,
+                token, id, balance, registrationDate, stocks,
                 watchlist, hasConfirmedEmail, role, username, email
-
               });
             });
         });

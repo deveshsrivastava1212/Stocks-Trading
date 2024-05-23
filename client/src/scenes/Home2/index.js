@@ -69,7 +69,7 @@ class Home extends Component {
                         <Col xl={4}>
                             <div className={perkWrapper}>
                                 <Phonelink className={perkIcon} style={{ fontSize: 48, color: 'white' }} />
-                                Available on both PC and<br />mobile by 2020.
+                                Available on both PC and<br />mobile by 2025.
                             </div>
                         </Col>
                         <Col xl={4}>
