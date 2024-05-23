@@ -34,7 +34,10 @@ router.post("/", isLoggedIn, async (req, res) => {
 
             const firstData = timeSeriesDaily[firstDate];
             const openValue = parseFloat(firstData['4. close']);
+            const price = parseFloat(firstData['1. open']);
             console.log(openValue);
+            console.log(price);
+
 
             let user = await User.findById(req.user._id);
             const { balance, stocks } = user;
@@ -48,7 +51,7 @@ router.post("/", isLoggedIn, async (req, res) => {
                 let newBalance = balance - openValue * qty;
                 let i = stocks.indexOf(existingStock[0]);
                 stocks.splice(i, 1);
-                stocks.push({ ticker, qty: newQty });
+                stocks.push({ ticker, qty: newQty, price:price});
                 await User.updateOne(
                     { _id: req.user._id },
                     {
