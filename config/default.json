@@ -1,0 +1,8 @@
+{
+    "mongoURI": "mongodb+srv://admin_dev:123admin@cluster0.468rbz2.mongodb.net/stocks?retryWrites=true&w=majority",
+    "jwtSecret": "mt_myJwtSecret",
+    "orderTypes": ["market", "limit", "stop", "buy-stop"],
+    "aplhaVantageAPI_Key": "8DDN0XYY48K54AIW",
+    "cookieSecret": "Cheese",
+    "port":5000
+}
