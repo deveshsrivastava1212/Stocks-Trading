@@ -50,8 +50,24 @@ router.post("/", isLoggedIn, async (req, res) => {
                 var newQty = existingQty + qty;
                 let newBalance = balance - openValue * qty;
                 let i = stocks.indexOf(existingStock[0]);
+                const dateObject = new Date();
+                // current date
+                // adjust 0 before single digit date
+                const date = (`0 ${dateObject.getDate()}`).slice(-2);
+                // current month
+                const month = (`${dateObject.getMonth() + 1}`).slice(-2);
+                // current year
+                const year = dateObject.getFullYear();
+                // current hours
+                const hours = dateObject.getHours();
+                // current minutes
+                const minutes = dateObject.getMinutes();
+                // current seconds
+                const seconds = dateObject.getSeconds();
+                console.log(`${year}-${month}-${date} ${hours}:${minutes}:${seconds}`);
+                const time_format = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`;
                 stocks.splice(i, 1);
-                stocks.push({ ticker, qty: newQty, price:price});
+                stocks.push({ ticker, qty: newQty, price: price, time: time_format });
                 await User.updateOne(
                     { _id: req.user._id },
                     {
